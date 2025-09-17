@@ -46,55 +46,69 @@ Q_21 = Q_cond_21 + Q_reb_21; %[kJ/h]
 
 %Flowrates
 
-% figure(1)
-% plot(Feed_stage_11, Circulating_liquid_11, 'LineWidth', 1.6)
-% hold on
-% plot(Feed_stage_11, Circulating_vapor_11, 'LineWidth', 1.6)
-% xlabel('Number of feeding stage [-]')
-% ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
-% legend('Liquid', 'Vapor')
-% title('Circulating flowrates as function of the feeding stage - First Configuration - First Column')
-% grid on
-% 
-% figure(2)
-% plot(Feed_stage_12, Circulating_liquid_12, 'LineWidth', 1.6)
-% hold on
-% plot(Feed_stage_12, Circulating_vapor_12, 'LineWidth', 1.6)
-% xlabel('Number of feeding stage [-]')
-% ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
-% legend('Liquid', 'Vapor')
-% title('Circulating flowrates as function of the feeding stage - First Configuration - Second Column')
-% grid on
+%First configuration
 
-% figure(3)
-% plot(Feed_stage_21, Circulating_liquid_21, 'LineWidth', 1.6)
-% hold on
-% plot(Feed_stage_21, Circulating_vapor_21, 'LineWidth', 1.6)
-% xlabel('Number of feeding stage [-]')
-% ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
-% legend('Liquid', 'Vapor')
-% title('Circulating flowrates as function of the feeding stage - Second Configuration - Second Column')
-% grid on
+fig = figure(1);
+set(fig,'Units','normalized','Position',[0.08 0.08 0.84 0.72]);  % figura più grande
+
+t = tiledlayout(fig,1,2,'Padding','compact','TileSpacing','compact');
+sgtitle(t,'Circulating flowrates as function of the feeding stage - First Configuration')
+
+%First column
+ax1 = nexttile;
+plot(Feed_stage_11, Circulating_liquid_11, 'LineWidth', 1.6); hold on
+plot(Feed_stage_11, Circulating_vapor_11,  'LineWidth', 1.6);
+xlabel('Number of feeding stage [-]')
+ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
+title('First Column')
+legend('Liquid','Vapor','Location','northeast')
+grid on
+
+%Second column
+ax2 = nexttile;
+plot(Feed_stage_12, Circulating_liquid_12, 'LineWidth', 1.6); hold on
+plot(Feed_stage_12, Circulating_vapor_12,  'LineWidth', 1.6);
+xlabel('Number of feeding stage [-]')
+ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
+title('Second Column')
+legend('Liquid','Vapor','Location','northeast')
+grid on
+
+set([ax1 ax2],'LooseInset',max(get(ax1,'TightInset'),0.02))
+
+%Second Configuration
+
+
 
 %Duties
 
-% figure(4)
-% plot(Feed_stage_11, Q_11, 'LineWidth', 1.6)
-% xlabel('Number of feeding stage [-]')
-% ylabel('Heat duty at the first column [kJ/h]')
-% title('Heat duty as function of the feeding stage - First Configuration - First Column')
-% grid on
+%First Configuration
 
-% figure(5)
-% plot(Feed_stage_12, Q_12, 'LineWidth', 1.6)
-% xlabel('Number of feeding stage [-]')
-% ylabel('Heat duty at the second column [kJ/h]')
-% title('Heat duty as function of the feeding stage - First Configuration - Second Column')
-% grid on
+fig = figure(3);
+set(fig,'Units','normalized','Position',[0.08 0.08 0.84 0.72]);  % figura grande
 
-% figure(6)
-% plot(Feed_stage_21, Q_21, 'LineWidth', 1.6)
-% xlabel('Number of feeding stage [-]')
-% ylabel('Heat duty at the first column [kJ/h]')
-% title('Heat duty as function of the feeding stage - Second Configuration - First Column')
-% grid on
+t = tiledlayout(fig,1,2,'Padding','compact','TileSpacing','compact');
+sgtitle(t,'Heat duties as function of the feeding stage - First Configuration')
+
+%First column
+ax1 = nexttile;
+plot(Feed_stage_11, Q_11, 'LineWidth', 1.6)
+xlabel('Number of feeding stage [-]')
+ylabel('Heat duty at the first column [kJ/h]')
+title('First Column')
+grid on
+
+%Second column
+ax2 = nexttile;
+plot(Feed_stage_12, Q_12, 'LineWidth', 1.6)
+xlabel('Number of feeding stage [-]')
+ylabel('Heat duty at the second column [kJ/h]')
+title('Second Column')
+grid on
+
+set([ax1 ax2],'LooseInset',max(get(ax1,'TightInset'),0.02))
+
+%Second Configuration
+
+
+
