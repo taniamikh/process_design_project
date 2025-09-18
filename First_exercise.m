@@ -14,6 +14,7 @@ Circulating_vapor_11 = [3309.388193	1152.281644	452.3305678	198.9722261	101.6373
 Q_cond_11 = [102932322.7	36035905.28	14319214.88	6443913.952	3397413.361	2141309.741	1585218.833	1332230.799	1213072.019	1166490.525	1146166.22	1145282.494	1158050.581	1180456.693	1211061.362	1250457.918	1298335.517	1358758.765	1435003.134	1533108.524	1662749.833	1842950.389	2093492.321	2477108.269	3102757.473	4220917.591	6449243.978	11396325.21	23381776.93	55041947.51]; %[kJ/h]
 Q_reb_11 = [102970065.9	36093791.65	14360976.96	6483989.665	3437268.48	2181166.94	1625085.891	1372120.127	1253393.475	1206093.837	1185851.652	1185054.059	1197857.788	1220305.851	1250911.533	1290376.364	1338194.147	1398608.05	1474842.019	1572938.458	1702600.38	1882689.32	2133349.089	2516963.029	3142603.388	4260765.565	6489075.064	11436146.87	23421598.3	55080592.18]; %[kmol/h]
 Q_11 = Q_cond_11 + Q_reb_11; 
+Q_11_min = min(Q_11);
 
 %First configuration - Second column
 
@@ -23,6 +24,7 @@ Circulating_vapor_12 = [941.2171368	441.1184044	226.5276138	135.529092	95.683208
 Q_cond_12 = [31852423.9	15001067.55	7765893.263	4692444.362	3342613.916	2695860.466	2352900.997	2155095.471	2034278.085	1957990.024	1909620.676	1879876.905	1863451.723	1857650.682	1861400.28	1874340.228	1897789.15	1934120.783	1987117.736	2062620.516	2169644.88	2322754.001	2545318.31	2881924.791	3415294.351	4317330.35	5967818.304	9234700.872	16063096.26	30553474.9]; %[kJ/h]
 Q_reb_12 = [31881230.13	15030012.64	7794752.758	4721278.872	3371455.387	2724686.798	2381734.762	2183932.719	2063112.085	1986892.19	1938471.571	1908740.19	1892327.316	1886424.103	1890254.986	1903206.937	1926694.271	1963025.186	2016011.211	2091496.25	2198497.901	2351521.692	2574156.361	2910781.861	3444147.759	4346182.444	5996655.012	9263549.87	16091027.9	30582622.37]; %[kJ/h]
 Q_12 = Q_cond_12 + Q_reb_12; 
+Q_12_min = min(Q_12);
 
 %Second configuration - First column
 
@@ -32,15 +34,19 @@ Circulating_vapor_21 = [1005.339136	449.2140177	228.1739574	137.9450045	99.17102
 Q_cond_21 = [33983467.09	15248377.37	7795382.319	4748298.726	3435156.292	2811979.969	2482701.281	2292630.914	2175930.79	2101504.186	2053470.477	2023034.887	2005222.664	1997333.63	1998577.502	2008331.58	2028389.61	2061762.41	2111373.029	2185118.416	2290845.571	2444019.917	2669511.303	3011603.042	3555826.483	4476857.989	6163860.448	9518644.552	16615836.24	32184114.55]; %[kJ/h]
 Q_reb_21 = [34036488.37	15303005.45	7850123.167	4803025.504	3489890.778	2866710.165	2537422.195	2347365.199	2230666.553	2156249.813	2108176.923	2077854.58	2060033.452	2052086.697	2053432.974	2008331.58	2082827.363	2115601.381	2166275.13	2239478.323	2345034.522	2498138.804	2723706.996	3066180.822	3610427.447	4531421.136	6218879.9	9567628.423	16667393.82	32239140.08]; %[kJ/h]
 Q_21 = Q_cond_21 + Q_reb_21; %[kJ/h]
+Q_21_min = min(Q_21);
 
 %Second configuration - Second column
 
-% Feed_stage_22 = linspace(1,30,30);
-% Circulating_liquid_22 = []; %[kmol/h]
-% Circulating_vapor_22 = []; %[kmol/h]
-% Q_cond_22 = []; %[kJ/h]
-% Q_reb_22 = []; %[kJ/h]
-% Q_22 = Q_cond_22 + Q_reb_22; %[kJ/h]
+%Second configuration - Second column
+
+Feed_stage_22 = linspace(1,30,30);
+Circulating_liquid_22 = [2434.18473 1009.7871 435.9678 205.10989 112.527746 74.560333 57.849378 50.056899 46.287101 44.439587 43.616911 43.367553 43.491098 43.885062 44.502367 22.19450 23.264530 24.617980 26.348659 28.603886 31.620220 35.796992 41.842648 51.128571 66.506335 94.497264 151.064030 276.147632 559.735840 1241.584940 ]; %[kmol/h]
+Circulating_vapor_22 = [2416.55756 992.0406 418.1822 187.31857 94.741004 56.786760 40.101176 32.282554 28.484007 26.631659 25.796607 25.542104 25.665058 26.061196 26.683934 27.519104 28.581747 29.931553 31.660473 33.914731 36.930408 41.106783 47.152355 56.437347 71.814787 99.804532 156.370193 281.449706 565.030202 1246.855326];  %[kmol/h]
+Q_cond_22 = [7.5032E+07 3.0862E+07 1.3065E+07 5.9028E+06 3.0261E+06 1.8407E+06 1.3190E+06 1.0712E+06 9.4836E+05 8.8879E+05 8.6047E+05 8.5144E+05 8.5533E+05 8.6842E+05 8.8893E+05 9.1681E+05 9.5265E+05 9.9828E+05 1.0568E+06 1.1330E+06 1.2350E+06 1.3760E+06 1.5801E+06 1.8934E+06 2.4118E+06 3.3553E+06 5.2610E+06 9.4750E+06 1.9027E+07 4.2001E+07]; %[kJ/h]
+Q_reb_22 = [7.5045E+07 3.0882E+07 1.3080E+07 5.9167E+06 3.0400E+06 1.8547E+06 1.3329E+06 1.0850E+06 9.6216E+05 9.0241E+05 8.7418E+05 8.6521E+05 8.6913E+05 8.8223E+05 9.0277E+05 9.3064E+05 9.6649E+05 1.0121E+06 1.0706E+06 1.1468E+06 1.2488E+06 1.3898E+06 1.5939E+06 1.9072E+06 2.4257E+06 3.3692E+06 5.2748E+06 9.4889E+06 1.9041E+07 4.2013E+07]; %[kJ/h]
+Q_22 = Q_cond_22 + Q_reb_22; %[kJ/h]
+Q_22_min = min(Q_22);
 
 %% Plots
 
@@ -48,51 +54,103 @@ Q_21 = Q_cond_21 + Q_reb_21; %[kJ/h]
 
 %First configuration
 
-fig = figure(1);
-set(fig,'Units','normalized','Position',[0.08 0.08 0.84 0.72]);  % figura più grande
-
-t = tiledlayout(fig,1,2,'Padding','compact','TileSpacing','compact');
-sgtitle(t,'Circulating flowrates as function of the feeding stage - First Configuration')
-
-%First column
-ax1 = nexttile;
-plot(Feed_stage_11, Circulating_liquid_11, 'LineWidth', 1.6); hold on
-plot(Feed_stage_11, Circulating_vapor_11,  'LineWidth', 1.6);
-xlabel('Number of feeding stage [-]')
-ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
-title('First Column')
-legend('Liquid','Vapor','Location','northeast')
-grid on
-
-%Second column
-ax2 = nexttile;
-plot(Feed_stage_12, Circulating_liquid_12, 'LineWidth', 1.6); hold on
-plot(Feed_stage_12, Circulating_vapor_12,  'LineWidth', 1.6);
-xlabel('Number of feeding stage [-]')
-ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
-title('Second Column')
-legend('Liquid','Vapor','Location','northeast')
-grid on
-
-set([ax1 ax2],'LooseInset',max(get(ax1,'TightInset'),0.02))
+% fig = figure(1);
+% set(fig,'Units','normalized','Position',[0.08 0.08 0.84 0.72]);  % figura più grande
+% 
+% t = tiledlayout(fig,1,2,'Padding','compact','TileSpacing','compact');
+% sgtitle(t,'Circulating flowrates as function of the feeding stage - Direct Scheme')
+% 
+% %First column
+% ax1 = nexttile;
+% plot(Feed_stage_11, Circulating_liquid_11, 'LineWidth', 1.6); hold on
+% plot(Feed_stage_11, Circulating_vapor_11,  'LineWidth', 1.6);
+% xlabel('Number of feeding stage [-]')
+% ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
+% title('First Column')
+% legend('Liquid','Vapor','Location','northeast')
+% grid on
+% 
+% %Second column
+% ax2 = nexttile;
+% plot(Feed_stage_12, Circulating_liquid_12, 'LineWidth', 1.6); hold on
+% plot(Feed_stage_12, Circulating_vapor_12,  'LineWidth', 1.6);
+% xlabel('Number of feeding stage [-]')
+% ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
+% title('Second Column')
+% legend('Liquid','Vapor','Location','northeast')
+% grid on
+% 
+% set([ax1 ax2],'LooseInset',max(get(ax1,'TightInset'),0.02))
 
 %Second Configuration
 
-
+% fig = figure(2);
+% set(fig,'Units','normalized','Position',[0.08 0.08 0.84 0.72]);  % figura più grande
+% 
+% t = tiledlayout(fig,1,2,'Padding','compact','TileSpacing','compact');
+% sgtitle(t,'Circulating flowrates as function of the feeding stage - Inverse Scheme')
+% 
+% %First column
+% ax1 = nexttile;
+% plot(Feed_stage_21, Circulating_liquid_21, 'LineWidth', 1.6); hold on
+% plot(Feed_stage_21, Circulating_vapor_21,  'LineWidth', 1.6);
+% xlabel('Number of feeding stage [-]')
+% ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
+% title('First Column')
+% legend('Liquid','Vapor','Location','northeast')
+% grid on
+% 
+% %Second column
+% ax2 = nexttile;
+% plot(Feed_stage_22, Circulating_liquid_22, 'LineWidth', 1.6); hold on
+% plot(Feed_stage_22, Circulating_vapor_22,  'LineWidth', 1.6);
+% xlabel('Number of feeding stage [-]')
+% ylabel('Circulating flowrate at the fifteenth stage [kmol/h]')
+% title('Second Column')
+% legend('Liquid','Vapor','Location','northeast')
+% grid on
+% 
+% set([ax1 ax2],'LooseInset',max(get(ax1,'TightInset'),0.02))
 
 %Duties
 
-%First Configuration
+% %First Configuration
+% 
+% fig = figure(3);
+% set(fig,'Units','normalized','Position',[0.08 0.08 0.84 0.72]);  % figura grande
+% 
+% t = tiledlayout(fig,1,2,'Padding','compact','TileSpacing','compact');
+% sgtitle(t,'Heat duties as function of the feeding stage - Direct Scheme')
+% 
+% %First column
+% ax1 = nexttile;
+% plot(Feed_stage_11, Q_11, 'LineWidth', 1.6)
+% xlabel('Number of feeding stage [-]')
+% ylabel('Heat duty at the first column [kJ/h]')
+% title('First Column')
+% grid on
+% 
+% %Second column
+% ax2 = nexttile;
+% plot(Feed_stage_12, Q_12, 'LineWidth', 1.6)
+% xlabel('Number of feeding stage [-]')
+% ylabel('Heat duty at the second column [kJ/h]')
+% title('Second Column')
+% grid on
+% 
+% set([ax1 ax2],'LooseInset',max(get(ax1,'TightInset'),0.02))
 
-fig = figure(3);
+%Second Configuration
+
+fig = figure(4);
 set(fig,'Units','normalized','Position',[0.08 0.08 0.84 0.72]);  % figura grande
 
 t = tiledlayout(fig,1,2,'Padding','compact','TileSpacing','compact');
-sgtitle(t,'Heat duties as function of the feeding stage - First Configuration')
+sgtitle(t,'Heat duties as function of the feeding stage - Inverse Scheme')
 
 %First column
 ax1 = nexttile;
-plot(Feed_stage_11, Q_11, 'LineWidth', 1.6)
+plot(Feed_stage_21, Q_21, 'LineWidth', 1.6)
 xlabel('Number of feeding stage [-]')
 ylabel('Heat duty at the first column [kJ/h]')
 title('First Column')
@@ -100,15 +158,11 @@ grid on
 
 %Second column
 ax2 = nexttile;
-plot(Feed_stage_12, Q_12, 'LineWidth', 1.6)
+plot(Feed_stage_22, Q_22, 'LineWidth', 1.6)
 xlabel('Number of feeding stage [-]')
 ylabel('Heat duty at the second column [kJ/h]')
 title('Second Column')
 grid on
 
 set([ax1 ax2],'LooseInset',max(get(ax1,'TightInset'),0.02))
-
-%Second Configuration
-
-
 
